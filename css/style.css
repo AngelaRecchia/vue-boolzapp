@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Helvetica;
+    font-size: 15px;
+}
+
 #sfondo {
     width: 100%;
     height: 100vh;
@@ -24,4 +29,57 @@
     height: calc(100vh - 6vh);
     margin: 3vh auto;
     background-color: red;
+    display: flex;
+}
+
+#recent {
+    width: 400px;
+    height: 100%;
+    background-color: green;
+    border-right: 1px solid #d4d4d4;
+}
+
+#msg {
+    width: calc(100% - 400px);
+    height: 100%;
+    background-color: beige;
+}
+
+header {
+    height: 65px;
+    width: 100%;
+    padding: 0 10px;
+    background-color: #EAEAEA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+header .avatar {
+    width: 50px;
+}
+
+.tools {
+    color: #B1B1B1;
+    font-size: 20px;
+}
+
+.tools i {
+    margin: 0 5px;
+}
+
+#notifiche {
+    height: 80px;
+    width: 100%;
+    background-color: #8EDAFC;
 }
