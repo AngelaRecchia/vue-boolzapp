@@ -150,6 +150,8 @@ header .avatar {
 
 #chats {
     background-color: #fff;
+    height: calc(100% - 195px);
+    overflow-y: scroll;
 }
 
 .conv {
@@ -162,4 +164,9 @@ header .avatar {
 
 #chats .avatar {
     width: 55px;
+}
+
+.showMsg {
+    margin-top: 10px;
+    color: #B1B1B1;
 }
