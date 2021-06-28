@@ -36,14 +36,13 @@ body {
     width: 80%;
     height: calc(100vh - 6vh);
     margin: 3vh auto;
-    background-color: red;
     display: flex;
+    background-color: #d4d4d4;;
 }
 
 #recent {
     width: 400px;
     height: 100%;
-    background-color: green;
     border-right: 1px solid #d4d4d4;
 }
 
@@ -147,4 +146,19 @@ header .avatar {
     align-items: center;
     justify-content: center;
     border: 1px solid #eeeeee;
+}
+
+#chats {
+    background-color: #fff;
+}
+
+.conv {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+}
+
+#chats .avatar {
+    width: 60px;
 }
