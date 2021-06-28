@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Helvetica;
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
 }
 
@@ -49,7 +49,6 @@ body {
 #msg {
     width: calc(100% - 400px);
     height: 100%;
-    background-color: beige;
 }
 
 header {
@@ -70,6 +69,10 @@ header {
 .user {
     display: flex;
     align-items: center;
+}
+
+.nome-utente {
+    font-weight: 500;
 }
 
 header .avatar {
@@ -169,4 +172,37 @@ header .avatar {
 .showMsg {
     margin-top: 10px;
     color: #B1B1B1;
+}
+
+#view-chat {
+    height: calc(100% - 130px);
+    overflow-y: scroll;
+    background-image: url(../img/mine.jpg);
+}
+
+#send-msg {
+    height: 65px;
+    width: 100%;
+    background-color: #F3EEEA;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#send-msg input {
+    flex: 1;
+    height: 50px;
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+}
+
+#send-msg input:focus {
+    outline: none;
+    border: 2px solid rgb(78, 78, 243);
+}
+
+#send-msg i {
+    font-size: 25px;
+    margin: 0 30px;
 }
