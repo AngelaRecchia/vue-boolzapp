@@ -314,4 +314,5 @@ header .avatar {
 .infoBox ul li {
     list-style: none;
     padding: 10px 0;
+    cursor: pointer;
 }
