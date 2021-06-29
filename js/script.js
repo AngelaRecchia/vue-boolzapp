@@ -24,7 +24,7 @@ const app = new Vue({
                         showInfoBox: false
                     },
                     {
-                        date: '10/01/2020 16:15:22',
+                        date: '29/06/2021 16:15:22',
                         text: 'Tutto fatto!',
                         status: 'received',
                         showInfoBox: false
@@ -160,9 +160,16 @@ const app = new Vue({
 
         deleteMsg(index, msgIndex) {
             /* this.contacts[index].messages.splice(msgIndex, 1); */
-            this.$delete(this.contacts[index].messages, msgIndex);
-            
-        }
+            this.$delete(this.contacts[index].messages, msgIndex);           
+        },
 
+        getTime (index, msgIndex = this.contacts[index].messages.length - 1) {
+            dayjs.extend(window.dayjs_plugin_customParseFormat);
+            const msgDate = dayjs(this.contacts[index].messages[msgIndex].date, 'DD/MM/YYYY HH:mm:ss');
+            const now = dayjs();
+            if (Math.abs(msgDate.diff(now, 'day')) > 1) return dayjs(msgDate).format('DD/MM/YYYY');
+            else if (Math.abs(msgDate.diff(now, 'day')) == 1) return "ieri alle " + dayjs(msgDate).format('HH:mm');
+            else return "oggi alle " + dayjs(msgDate).format('HH:mm');
+        }
     }
 });

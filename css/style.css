@@ -21,6 +21,10 @@ body {
     color: #7e7d7d;
 }
 
+.lightgrey {
+    color:#B1B1B1;
+}
+
 i {
     cursor: pointer;
 }
@@ -89,6 +93,10 @@ header {
     font-weight: 500;
     display: flex;
     justify-content: space-between;
+}
+
+.nome-utente span {
+    font-weight: 400;
 }
 
 header .avatar {
