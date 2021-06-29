@@ -226,6 +226,7 @@ header .avatar {
 .msg {
     width: fit-content;
     max-width: 80%;
+    min-width: 25%;
     padding: 10px;
     border-radius: 8px;
     position: relative;
@@ -233,12 +234,12 @@ header .avatar {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.msg.received {
+.received {
     background-color: #fff;
     float: left;
 }
 
-.msg.sent {
+.sent {
     background-color: #DBFAC6;
     float: right;
 }
@@ -263,33 +264,54 @@ header .avatar {
     top: 0px;
 }
 
-.msg.received::after {
+.received::after {
     border-color: white transparent transparent transparent;
     left: -9px;
 }
 
-.msg.sent::after {
+.sent::after {
     border-color: #DBFAC6 transparent transparent transparent;
     right: -9px;
 }
 
-.msg i {
+.msg .absEl {
     position: absolute;
     top: 8px;
     right: 8px;
     z-index: 1;
-    background-color:inherit;
-    display: none;
 }
 
-.msg.received i {
+.absEl i {
+    opacity: 0;
+}
+
+.received:hover i {
     box-shadow: -5px 5px 3px white;
+    background-color: white;
 }
 
-.msg.sent i {
+.sent:hover i {
     box-shadow: -5px 5px 3px #DBFAC6;
+    background-color: #DBFAC6;
 }
 
 .msg:hover i {
-    display: inline;
+    opacity: 1;
+}
+
+.infoBox {
+    background-color: #fff;
+    width: max-content;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: -140px;
+    top: 20px;
+    font-weight: 500;
+}
+
+.infoBox ul li {
+    list-style: none;
+    padding: 10px 0;
 }
