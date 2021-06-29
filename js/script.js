@@ -1,12 +1,14 @@
 const app = new Vue({
     el: "#app",
     data: {
+        toSearch: "",
         addMsg: "",
         contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                searchShow: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -29,6 +31,7 @@ const app = new Vue({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: false,
+                searchShow: true,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -51,6 +54,7 @@ const app = new Vue({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: false,
+                searchShow: true,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -73,6 +77,7 @@ const app = new Vue({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: false,
+                searchShow: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -95,7 +100,7 @@ const app = new Vue({
         },
 
         sendMsg() {
-            this.contacts.forEach((contact, index) => {
+            this.contacts.forEach(contact => {
                 if (contact.visible && this.addMsg) {
                     const now = dayjs().format('DD/MM/YYYY HH:mm:ss');
                     const objMsg = {
@@ -104,7 +109,7 @@ const app = new Vue({
                         status: 'sent'
                     }
 
-                    this.contacts[index].messages.push(objMsg);
+                    contact.messages.push(objMsg);
 
                     setTimeout(() => {
 
@@ -114,13 +119,17 @@ const app = new Vue({
                             status: 'received'
                         }
 
-                        this.contacts[index].messages.push(objMsgBack);
+                        contact.messages.push(objMsgBack);
 
                     }, 1000);
-                    
+
                     this.addMsg = "";
                 }
             });  
+        },
+
+        filterSearch() {
+            this.contacts.forEach(contact => contact.searchShow = contact.name.toLowerCase().includes(this.toSearch.toLowerCase()));
         }
     }
 });
