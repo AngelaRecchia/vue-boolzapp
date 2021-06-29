@@ -13,6 +13,10 @@ body {
     font-size: 13px;
 }
 
+.smaller {
+    font-size: 11px;
+}
+
 .grey {
     color: #7e7d7d;
 }
@@ -83,6 +87,8 @@ header {
 
 .nome-utente {
     font-weight: 500;
+    display: flex;
+    justify-content: space-between;
 }
 
 header .avatar {
@@ -320,4 +326,8 @@ header .avatar {
     list-style: none;
     padding: 10px 0;
     cursor: pointer;
+}
+
+.firstMsg {
+    color: red;
 }

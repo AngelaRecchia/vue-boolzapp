@@ -161,6 +161,7 @@ const app = new Vue({
         deleteMsg(index, msgIndex) {
             /* this.contacts[index].messages.splice(msgIndex, 1); */
             this.$delete(this.contacts[index].messages, msgIndex);
+            
         }
 
     }

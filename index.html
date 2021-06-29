@@ -57,8 +57,13 @@
                 <div class="conv" v-for="(contact, index) in contacts" v-if="contact.searchShow == true" @click="openChat(index)">
                     <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar">
                     <div class="msg_prev">
-                        <div class="nome-utente">{{contact.name}}</div>
-                        <div v-if="contact.messages.length != 0" class="showMsg small">{{contact.messages[contact.messages.length - 1].text}}</div>
+                        <div class="nome-utente">
+                            {{contact.name}}
+                            <span v-if="contact.messages.length != 0" class="smaller grey right">{{contact.messages[contact.messages.length - 1].date}}</span>
+                        </div>
+                        <div v-if="contact.messages.length != 0" class="showMsg small">
+                            <span>{{contact.messages[contact.messages.length - 1].text}}</span>
+                        </div>
                     </div>
                 </div>
 
@@ -93,6 +98,7 @@
                     <div class="msg-box">
                         <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="(message.status == 'received') ? 'received' : 'sent'">
 
+                            
                             <span class="msg-text">{{message.text}}</span>
                             <div class="date">{{message.date}}</div>
                             <div class="absEl">
