@@ -196,6 +196,11 @@ header .avatar {
     padding: 2% 3%; 
 }
 
+.msg-box {
+    display: flex;
+    flex-direction: column;
+}
+
 #send-msg {
     height: 65px;
     width: 100%;
@@ -236,12 +241,12 @@ header .avatar {
 
 .received {
     background-color: #fff;
-    float: left;
+    align-self: flex-start;
 }
 
 .sent {
     background-color: #DBFAC6;
-    float: right;
+    align-self: flex-end;
 }
 
 .date {

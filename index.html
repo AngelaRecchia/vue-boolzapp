@@ -90,38 +90,23 @@
 
                 <div v-for="(contact, index) in contacts" v-if="contact.visible == true">
                     
-                        <div class="msg-box clearfix" v-for="(message, msgIndex) in contact.messages">
-                                                        
-                            <div class="msg received" v-if="message.status == 'received'">
-                                <span class="msg-text">{{message.text}}</span>
-                                <div class="date">{{message.date}}</div>
-                                <div class="absEl">
-                                    <i class="fas fa-chevron-down grey" @click="showInfo(index, msgIndex)"></i>
-                                    <div class="infoBox hidden" v-if="message.showInfoBox">
-                                        <ul class="grey">
-                                            <li>Message info</li>
-                                            <li @click="deleteMsg(index, msgIndex)">Delete message</li>
-                                        </ul>
-                                    </div>
+                    <div class="msg-box">
+                        <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="(message.status == 'received') ? 'received' : 'sent'">
+
+                            <span class="msg-text">{{message.text}}</span>
+                            <div class="date">{{message.date}}</div>
+                            <div class="absEl">
+                                <i class="fas fa-chevron-down grey" @click="showInfo(index, msgIndex)"></i>
+                                <div class="infoBox" v-if="message.showInfoBox">
+                                    <ul class="grey">
+                                        <li>Message info</li>
+                                        <li @click="deleteMsg(index, msgIndex)">Delete message</li>
+                                    </ul>
                                 </div>
-                            </div>
-                        
-                            <div class="msg sent clearfix" v-if="message.status == 'sent'">
-                                <span class="msg-text">{{message.text}}</span>
-                                <div class="date">{{message.date}}</div>
-                                <div class="absEl">
-                                    <i class="fas fa-chevron-down grey" @click="showInfo(index, msgIndex)"></i>
-                                    <div class="infoBox" v-if="message.showInfoBox">
-                                        <ul class="grey">
-                                            <li>Message info</li>
-                                            <li @click="deleteMsg(index, msgIndex)">Delete message</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
                             </div>
                             
                         </div>
+                    </div>
                     
                 </div>
 
