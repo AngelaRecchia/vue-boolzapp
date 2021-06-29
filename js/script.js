@@ -105,6 +105,19 @@ const app = new Vue({
                     }
 
                     this.contacts[index].messages.push(objMsg);
+
+                    setTimeout(() => {
+
+                        const objMsgBack = {
+                            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                            text: "ok",
+                            status: 'received'
+                        }
+
+                        this.contacts[index].messages.push(objMsgBack);
+
+                    }, 1000);
+                    
                     this.addMsg = "";
                 }
             });  

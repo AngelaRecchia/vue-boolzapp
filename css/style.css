@@ -183,6 +183,10 @@ header .avatar {
 .showMsg {
     margin-top: 10px;
     color: #B1B1B1;
+    width: 274px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 #view-chat {
