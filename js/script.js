@@ -1,7 +1,7 @@
 const app = new Vue({
     el: "#app",
     data: {
-
+        addMsg: "",
         contacts: [
             {
                 name: 'Michele',
@@ -92,6 +92,21 @@ const app = new Vue({
         openChat(index) {
             this.contacts.map(contact => contact.visible = false);
             this.contacts[index].visible = true;
+        },
+
+        sendMsg() {
+            this.contacts.forEach((contact, index) => {
+                if (contact.visible && this.addMsg) {
+                    const objMsg = {
+                        date: '10/01/2020 15:50:00',
+                        text: this.addMsg,
+                        status: 'sent'
+                    }
+                    
+                    this.contacts[index].messages.push(objMsg);
+                    this.addMsg = "";
+                }
+            });  
         }
     }
 });

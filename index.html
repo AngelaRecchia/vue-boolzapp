@@ -108,7 +108,7 @@
 
             <footer id="send-msg">
                 <span class="grey"><i class="far fa-smile"></i></span>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" v-model="addMsg" placeholder="Scrivi un messaggio" v-on:keyup.enter="sendMsg">
                 <span class="grey"><i class="fas fa-microphone"></i></span>
             </footer>
 
