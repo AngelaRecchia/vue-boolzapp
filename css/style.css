@@ -17,6 +17,10 @@ body {
     color: #7e7d7d;
 }
 
+i {
+    cursor: pointer;
+}
+
 #sfondo {
     width: 100%;
     height: 100vh;
@@ -46,7 +50,7 @@ body {
     border-right: 1px solid #d4d4d4;
 }
 
-#msg {
+#view-conv {
     width: calc(100% - 400px);
     height: 100%;
 }
@@ -178,6 +182,7 @@ header .avatar {
     height: calc(100% - 130px);
     overflow-y: scroll;
     background-image: url(../img/mine.jpg);
+    padding: 2% 3%; 
 }
 
 #send-msg {
@@ -199,10 +204,66 @@ header .avatar {
 
 #send-msg input:focus {
     outline: none;
-    border: 2px solid rgb(78, 78, 243);
+    border: 2px solid #32B1E9;
 }
 
 #send-msg i {
     font-size: 25px;
     margin: 0 30px;
+}
+
+.msg {
+    width: fit-content;
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    margin: 1vh 0;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.msg.received {
+    background-color: #fff;
+    float: left;
+}
+
+.msg.sent {
+    background-color: #DBFAC6;
+    float: right;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.date {
+    position: relative;
+    text-align: right;
+    bottom: -5px;
+    font-size: 12px;
+    color:grey;
+    /* margin-left: 30px; non riesco a metterlo inline con il testo del messaggio se c'è abbastanza spazio*/
+}
+
+.msg::after {
+    content: "";
+    position:absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 13px 10px 0 10px;
+    top: 0px;
+}
+
+.msg.received::after {
+    border-color: white transparent transparent transparent;
+    left: -9px;
+}
+
+.msg.sent::after {
+    border-color: #DBFAC6 transparent transparent transparent;
+    right: -9px;
 }

@@ -64,7 +64,7 @@
 
         </aside>
 
-        <main id="msg">
+        <main id="view-conv">
 
             <header>
                 <div class="user">
@@ -85,7 +85,26 @@
                 
             </header>
 
-            <main id="view-chat"></main>
+            <main id="view-chat">
+
+                <div v-for="(contact, index) in contacts" v-if="contact.visible == true">
+
+                        <div class="msg-box clearfix" v-for="message in contact.messages">
+                        
+                            <div class="msg received" v-if="message.status == 'received'">
+                                <span class="msg-text">{{message.text}}</span>
+                                <div class="date">{{message.date}}</div>
+                            </div>
+                        
+                            <div class="msg sent clearfix" v-if="message.status == 'sent'">
+                                <span class="msg-text">{{message.text}}</span>
+                                <div class="date">{{message.date}}</div>
+                            </div>
+                        
+                        </div>
+                </div>
+
+            </main>
 
             <footer id="send-msg">
                 <span class="grey"><i class="far fa-smile"></i></span>
