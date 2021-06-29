@@ -97,12 +97,13 @@ const app = new Vue({
         sendMsg() {
             this.contacts.forEach((contact, index) => {
                 if (contact.visible && this.addMsg) {
+                    const now = dayjs().format('DD/MM/YYYY HH:mm:ss');
                     const objMsg = {
-                        date: '10/01/2020 15:50:00',
+                        date: now,
                         text: this.addMsg,
                         status: 'sent'
                     }
-                    
+
                     this.contacts[index].messages.push(objMsg);
                     this.addMsg = "";
                 }
