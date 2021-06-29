@@ -52,7 +52,7 @@
 
             <section id="chats">
 
-                <div class="conv" v-for="(contact, index) in contacts">
+                <div class="conv" v-for="(contact, index) in contacts" @click="openChat(index)">
                     <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar">
                     <div class="msg_prev">
                         <div class="nome-utente">{{contact.name}}</div>
@@ -67,10 +67,10 @@
         <main id="view-conv">
 
             <header>
-                <div class="user">
-                    <img class="avatar" src="img/avatar_1.jpg" alt="user avatar">
+                <div class="user" v-for="(contact, index) in contacts" v-if="contact.visible == true">
+                    <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="user avatar">
                     <div>
-                        <span class="nome-utente">Michele</span>
+                        <span class="nome-utente">{{contact.name}}</span>
                         <div class="small grey">Ultimo accesso oggi alle</div>
                     </div>
                     
