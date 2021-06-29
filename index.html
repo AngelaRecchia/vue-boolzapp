@@ -96,11 +96,13 @@
                             <div class="msg received" v-if="message.status == 'received'">
                                 <span class="msg-text">{{message.text}}</span>
                                 <div class="date">{{message.date}}</div>
+                                <i class="fas fa-chevron-down grey"></i>
                             </div>
                         
                             <div class="msg sent clearfix" v-if="message.status == 'sent'">
                                 <span class="msg-text">{{message.text}}</span>
                                 <div class="date">{{message.date}}</div>
+                                <i class="fas fa-chevron-down grey"></i>
                             </div>
                         
                         </div>
