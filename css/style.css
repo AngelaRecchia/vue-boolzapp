@@ -249,7 +249,7 @@ header .avatar {
     padding: 10px;
     border-radius: 8px;
     position: relative;
-    margin: 1vh 0;
+    margin-top: 3px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -272,7 +272,11 @@ header .avatar {
     /* margin-left: 30px; non riesco a metterlo inline con il testo del messaggio se c'è abbastanza spazio*/
 }
 
-.msg::after {
+.isFirst {
+    margin-top: 2vh;
+}
+
+.isFirst::after {
     content: "";
     position:absolute;
     width: 0;
@@ -283,12 +287,12 @@ header .avatar {
     top: 0px;
 }
 
-.received::after {
+.isFirst.received::after {
     border-color: white transparent transparent transparent;
     left: -9px;
 }
 
-.sent::after {
+.isFirst.sent::after {
     border-color: #DBFAC6 transparent transparent transparent;
     right: -9px;
 }
@@ -336,6 +340,6 @@ header .avatar {
     cursor: pointer;
 }
 
-.firstMsg {
+.viola {
     color: red;
 }

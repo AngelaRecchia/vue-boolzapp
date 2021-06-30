@@ -96,8 +96,7 @@
                 <div v-for="(contact, index) in contacts" v-if="contact.visible == true">
                     
                     <div class="msg-box">
-                        <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="(message.status == 'received') ? 'received' : 'sent'">
-
+                        <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="[message.status, firstMsg(index, msgIndex)]">
                             
                             <span class="msg-text">{{message.text}}</span>
                             <div class="date">{{getTime(index, msgIndex)}}</div>

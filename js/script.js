@@ -12,13 +12,13 @@ const app = new Vue({
                 ultimoAccesso: '11:15',
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: '27/06/2021 15:30:55',
                         text: 'Hai portato a spasso il cane?',
                         status: 'sent',
                         showInfoBox: false
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: '28/06/2021 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
                         status: 'sent',
                         showInfoBox: false
@@ -170,6 +170,15 @@ const app = new Vue({
             if (Math.abs(msgDate.diff(now, 'day')) > 1) return dayjs(msgDate).format('DD/MM/YYYY');
             else if (Math.abs(msgDate.diff(now, 'day')) == 1) return "ieri alle " + dayjs(msgDate).format('HH:mm');
             else return "oggi alle " + dayjs(msgDate).format('HH:mm');
+        },
+        
+        firstMsg(index, msgIndex) {
+            if (msgIndex == 0) return "isFirst";
+            else if (msgIndex > 0) {
+                console.log(msgIndex);
+                if(this.contacts[index].messages[msgIndex].status != this.contacts[index].messages[msgIndex - 1].status) return "isFirst";
+            }
         }
+
     }
 });
