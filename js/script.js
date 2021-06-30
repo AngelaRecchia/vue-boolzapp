@@ -2,6 +2,8 @@ const app = new Vue({
     el: "#app",
     data: {
         toSearch: "",
+        textSearchMsg: "",
+        showingSearchBar: false,
         addMsg: "",
         contacts: [
             {
@@ -109,9 +111,12 @@ const app = new Vue({
         ]
     },
     methods: {
-        openChat(index) {
+
+        openChat(index = 0) {
             this.contacts.map(contact => contact.visible = false);
             this.contacts[index].visible = true;
+            this.contactVisible = index;
+            this.textSearchMsg = "";
         },
 
         sendMsg() {
@@ -175,10 +180,13 @@ const app = new Vue({
         firstMsg(index, msgIndex) {
             if (msgIndex == 0) return "isFirst";
             else if (msgIndex > 0) {
-                console.log(msgIndex);
                 if(this.contacts[index].messages[msgIndex].status != this.contacts[index].messages[msgIndex - 1].status) return "isFirst";
             }
-        }
+        },
 
-    }
+        showSearchBar() {
+            this.showingSearchBar = !this.showingSearchBar;
+        }
+    },
+    
 });

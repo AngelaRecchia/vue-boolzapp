@@ -80,11 +80,11 @@
                         <span class="nome-utente">{{contact.name}}</span>
                         <div class="small grey">Ultimo accesso oggi alle {{contact.ultimoAccesso}}</div>
                     </div>
-                    
                 </div>
-                
+
                 <div class="tools grey">
-                    <i class="fas fa-search"></i>
+                    <input type="text" v-model="textSearchMsg" id="inputSearchMsg" placeholder="Cerca tra i messaggi" v-if="showingSearchBar">
+                    <i class="fas fa-search" @click="showSearchBar"></i>
                     <i class="fas fa-paperclip"></i>
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
@@ -96,7 +96,7 @@
                 <div v-for="(contact, index) in contacts" v-if="contact.visible == true">
                     
                     <div class="msg-box">
-                        <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="[message.status, firstMsg(index, msgIndex)]">
+                        <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="[message.status, firstMsg(index, msgIndex)]" v-if="(message.text).toLowerCase().includes(textSearchMsg.toLowerCase())">
                             
                             <span class="msg-text">{{message.text}}</span>
                             <div class="date">{{getTime(index, msgIndex)}}</div>
