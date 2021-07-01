@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.20/plugin/customParseFormat.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <title>Boolzapp</title>
 </head>
 <body>
@@ -100,7 +101,17 @@
                         <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="[message.status, firstMsg(index, msgIndex)]" v-if="(message.text).toLowerCase().includes(textSearchMsg.toLowerCase())">
                             
                             <span class="msg-text">{{message.text}}</span>
-                            <div class="date">{{getTime(index, msgIndex)}}</div>
+                            <div class="infos">
+                                
+                                <span class="date"> {{getTime(index, msgIndex)}}</span>
+
+                                <span v-show="message.checkType == 'single'" class="iconify check" data-icon="bx:bx-check" data-inline="false"></span>
+
+                                <span v-show="message.checkType == 'double'" class="iconify check" data-icon="bx:bx-check-double" data-inline="false"></span>
+
+                                <span v-show="message.checkType == 'double-blue'" class="iconify check blue" data-icon="bx:bx-check-double" data-inline="false"></span>
+
+                            </div>
                             <div class="absEl">
                                 <i class="fas fa-chevron-down grey" @click="showInfo(index, msgIndex)"></i>
                                 <div class="infoBox" v-if="message.showInfoBox">

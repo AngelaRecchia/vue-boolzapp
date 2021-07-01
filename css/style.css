@@ -25,6 +25,10 @@ body {
     color:#B1B1B1;
 }
 
+.blue {
+    color: #32B1E9;
+}
+
 i {
     cursor: pointer;
 }
@@ -260,6 +264,7 @@ header .avatar {
     max-width: 80%;
     min-width: 25%;
     padding: 10px;
+    padding-bottom: 0px;
     border-radius: 8px;
     position: relative;
     margin-top: 3px;
@@ -276,13 +281,26 @@ header .avatar {
     align-self: flex-end;
 }
 
-.date {
-    position: relative;
-    text-align: right;
-    bottom: -5px;
-    font-size: 12px;
+.infos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5px;
     color:grey;
-    /* margin-left: 30px; non riesco a metterlo inline con il testo del messaggio se c'è abbastanza spazio*/
+}
+
+.received .infos {
+    margin-bottom: 3px;
+}
+
+.infos .check {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.date {
+    font-size: 12px;
+    height: fit-content;
 }
 
 .isFirst {

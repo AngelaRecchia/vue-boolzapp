@@ -18,13 +18,15 @@ const app = new Vue({
                         date: '27/06/2021 15:30:55',
                         text: 'Hai portato a spasso il cane?',
                         status: 'sent',
-                        showInfoBox: false
+                        showInfoBox: false,
+                        checkType: 'double-blue',
                     },
                     {
                         date: '28/06/2021 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
                         status: 'sent',
-                        showInfoBox: false
+                        showInfoBox: false,
+                        checkType: 'double-blue',
                     },
                     {
                         date: '29/06/2021 16:15:22',
@@ -45,19 +47,21 @@ const app = new Vue({
                         date: '20/02/2020 16:30:00',
                         text: 'Ciao come stai?',
                         status: 'sent',
-                        showInfoBox: false
+                        showInfoBox: false,
+                        checkType: 'double-blue',
                     },
                     {
                         date: '21/03/2020 16:30:55',
                         text: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received',
-                        showInfoBox: false
+                        showInfoBox: false,
                     },
                     {
                         date: '25/04/2020 16:35:00',
                         text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'sent',
-                        showInfoBox: false
+                        showInfoBox: false,
+                        checkType: 'double-blue',
                     }
                 ],
             },
@@ -78,7 +82,8 @@ const app = new Vue({
                         date: '28/03/2020 10:20:10',
                         text: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent',
-                        showInfoBox: false
+                        showInfoBox: false,
+                        checkType: 'double-blue',
                     },
                     {
                         date: '28/03/2020 16:15:22',
@@ -99,7 +104,8 @@ const app = new Vue({
                         date: '10/01/2020 15:30:55',
                         text: 'Lo sai che ha aperto una nuova pizzeria?',
                         status: 'sent',
-                        showInfoBox: false
+                        showInfoBox: false,
+                        checkType: 'double-blue',
                     },
                     {
                         date: '10/01/2020 15:50:00',
@@ -128,12 +134,24 @@ const app = new Vue({
                         date: now,
                         text: this.addMsg,
                         status: 'sent',
-                        showInfoBox: false
+                        showInfoBox: false,
+                        checkType: 'single',
                     }
 
-                    contact.messages.push(objMsg);
-                    contact.activity = "Sta scrivendo..."
+                    const indexMsg = contact.messages.push(objMsg);
+                    
+                    setTimeout(function() {
+                        contact.messages[indexMsg - 1].checkType = 'double';
+                    }, 1000);
 
+                    setTimeout(function() {
+                        contact.messages[indexMsg - 1].checkType = 'double-blue';
+                    }, 2000);
+
+                    setTimeout(function() {
+                        contact.activity = "Sta scrivendo..."
+                    }, 3000);
+                    
                     setTimeout(() => {
 
                         const objMsgBack = {
@@ -146,7 +164,7 @@ const app = new Vue({
                         contact.messages.push(objMsgBack);
                         contact.activity = "Ultimo accesso oggi alle " + dayjs().format('HH:mm');
 
-                    }, 1000);
+                    }, 5000);
 
                     this.addMsg = "";
                 }
