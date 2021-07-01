@@ -28,6 +28,7 @@
                 <div class="user">
                     <img class="avatar" src="img/avatar_io.jpg" alt="user avatar">
                     <span class="nome-utente">Nome Utente</span>
+                    
                 </div>
                 
                 
@@ -78,7 +79,7 @@
                     <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="user avatar">
                     <div>
                         <span class="nome-utente">{{contact.name}}</span>
-                        <div class="small grey">Ultimo accesso oggi alle {{contact.ultimoAccesso}}</div>
+                        <div class="small grey">{{contact.activity}}</div>
                     </div>
                 </div>
 

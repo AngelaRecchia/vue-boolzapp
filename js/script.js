@@ -11,7 +11,7 @@ const app = new Vue({
                 avatar: '_1',
                 visible: true,
                 searchShow: true,
-                ultimoAccesso: '11:15',
+                activity: 'Ultimo accesso oggi alle 11:15',
                 messages: [
                     {
                         date: '27/06/2021 15:30:55',
@@ -38,22 +38,22 @@ const app = new Vue({
                 avatar: '_2',
                 visible: false,
                 searchShow: true,
-                ultimoAccesso: '10:12',
+                activity: 'Ultimo accesso oggi alle 10:12',
                 messages: [
                     {
-                        date: '20/03/2020 16:30:00',
+                        date: '20/02/2020 16:30:00',
                         text: 'Ciao come stai?',
                         status: 'sent',
                         showInfoBox: false
                     },
                     {
-                        date: '20/03/2020 16:30:55',
+                        date: '21/03/2020 16:30:55',
                         text: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received',
                         showInfoBox: false
                     },
                     {
-                        date: '20/03/2020 16:35:00',
+                        date: '25/04/2020 16:35:00',
                         text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'sent',
                         showInfoBox: false
@@ -65,7 +65,7 @@ const app = new Vue({
                 avatar: '_3',
                 visible: false,
                 searchShow: true,
-                ultimoAccesso: '12:23',
+                activity: 'Ultimo accesso oggi alle 12:23',
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -92,7 +92,7 @@ const app = new Vue({
                 avatar: '_4',
                 visible: false,
                 searchShow: true,
-                ultimoAccesso: '11:19',
+                activity: 'Ultimo accesso oggi alle 11:19',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -131,6 +131,7 @@ const app = new Vue({
                     }
 
                     contact.messages.push(objMsg);
+                    contact.activity = "Sta scrivendo..."
 
                     setTimeout(() => {
 
@@ -142,6 +143,7 @@ const app = new Vue({
                         }
 
                         contact.messages.push(objMsgBack);
+                        contact.activity = "Ultimo accesso oggi alle " + dayjs().format('HH:mm');
 
                     }, 1000);
 
@@ -186,7 +188,18 @@ const app = new Vue({
 
         showSearchBar() {
             this.showingSearchBar = !this.showingSearchBar;
-        }
+        },
+
+        /* newDay() { 
+            dayjs.extend(window.dayjs_plugin_customParseFormat);
+            let msgDate = dayjs(this.contacts[1].messages[1].date).format('DD/MM/YYYY');
+            let msgAfterDate = dayjs(this.contacts[1].messages[2].date).format('DD/MM/YYYY');
+
+           
+            console.log(msgDate, msgAfterDate); */
+            /* if ( msgDate.diff(msgAfterDate, "day") >= 1) console.log("giorno dopo")
+            else console.log("giorno stesso"); */
+        
     },
     
 });
