@@ -108,11 +108,11 @@
 
                                 <span class="date"> {{getTime(index, msgIndex)}}</span>
 
-                                <span v-show="message.checkType == 'single'" class="iconify check" data-icon="bx:bx-check" data-inline="false"></span>
+                                <div v-show="message.checkType == 'single'" class="check"><span  class="iconify" data-icon="bx:bx-check" data-inline="false"></span></div>
 
-                                <span v-show="message.checkType == 'double'" class="iconify check" data-icon="bx:bx-check-double" data-inline="false"></span>
+                                <div v-show="message.checkType == 'double'" class="check"><span  class="iconify" data-icon="bx:bx-check-double" data-inline="false"></span></div>
 
-                                <span v-show="message.checkType == 'double-blue'" class="iconify check blue" data-icon="bx:bx-check-double" data-inline="false"></span>
+                                <div v-show="message.checkType == 'double-blue'" class="check blue"><span  class="iconify" data-icon="bx:bx-check-double" data-inline="false"></span></div>
 
                             </div>
 
