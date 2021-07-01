@@ -97,12 +97,15 @@
 
                 <div v-for="(contact, index) in contacts" v-if="contact.visible == true">
                     
-                    <div class="msg-box">
-                        <div class="msg" v-for="(message, msgIndex) in contact.messages" :class="[message.status, firstMsg(index, msgIndex)]" v-if="(message.text).toLowerCase().includes(textSearchMsg.toLowerCase())">
+                    <div class="msg-box" v-for="(message, msgIndex) in contact.messages">
+
+                        <span class="day" v-if="newDay(index, msgIndex)">{{newDay(index,msgIndex)}}</span>
+
+                        <div class="msg" :class="[message.status, firstMsg(index, msgIndex)]" v-if="(message.text).toLowerCase().includes(textSearchMsg.toLowerCase())">
                             
                             <span class="msg-text">{{message.text}}</span>
                             <div class="infos">
-                                
+
                                 <span class="date"> {{getTime(index, msgIndex)}}</span>
 
                                 <span v-show="message.checkType == 'single'" class="iconify check" data-icon="bx:bx-check" data-inline="false"></span>
@@ -112,6 +115,7 @@
                                 <span v-show="message.checkType == 'double-blue'" class="iconify check blue" data-icon="bx:bx-check-double" data-inline="false"></span>
 
                             </div>
+
                             <div class="absEl">
                                 <i class="fas fa-chevron-down grey" @click="showInfo(index, msgIndex)"></i>
                                 <div class="infoBox" v-if="message.showInfoBox">

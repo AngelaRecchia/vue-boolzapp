@@ -22,7 +22,7 @@ const app = new Vue({
                         checkType: 'double-blue',
                     },
                     {
-                        date: '28/06/2021 15:50:00',
+                        date: '27/06/2021 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
                         status: 'sent',
                         showInfoBox: false,
@@ -127,7 +127,7 @@ const app = new Vue({
         },
 
         sendMsg() {
-            this.contacts.forEach(contact => {
+            this.contacts.forEach((contact, index) => {
                 if (contact.visible && this.addMsg) {
                     const now = dayjs().format('DD/MM/YYYY HH:mm:ss');
                     const objMsg = {
@@ -141,11 +141,11 @@ const app = new Vue({
                     const indexMsg = contact.messages.push(objMsg);
                     
                     setTimeout(function() {
-                        contact.messages[indexMsg - 1].checkType = 'double';
+                        this.contacts[index].messages[indexMsg - 1].checkType = 'double';
                     }, 1000);
 
                     setTimeout(function() {
-                        contact.messages[indexMsg - 1].checkType = 'double-blue';
+                        this.contacts[index].messages[indexMsg - 1].checkType = 'double-blue';
                     }, 2000);
 
                     setTimeout(function() {
@@ -209,15 +209,35 @@ const app = new Vue({
             this.showingSearchBar = !this.showingSearchBar;
         },
 
-        /* newDay() { 
-            dayjs.extend(window.dayjs_plugin_customParseFormat);
-            let msgDate = dayjs(this.contacts[1].messages[1].date).format('DD/MM/YYYY');
-            let msgAfterDate = dayjs(this.contacts[1].messages[2].date).format('DD/MM/YYYY');
+        newDay(index, msgIndex) { 
 
+            console.log(index, msgIndex);
+
+            dayjs.extend(window.dayjs_plugin_customParseFormat);
+            const msgDate = dayjs(this.contacts[index].messages[msgIndex].date, 'DD/MM/YYYY');
+            const now = dayjs();
+
+            if (msgIndex == 0) {
+                if (Math.abs(msgDate.diff(now, 'day')) > 1) return dayjs(msgDate).format('DD MMMM YYYY');
+                else if (Math.abs(msgDate.diff(now, 'day')) == 1) return "Ieri";
+                else return "oggi";
+            }
+
+            let msgAfterDate = dayjs(this.contacts[index].messages[msgIndex - 1].date, 'DD/MM/YYYY');
+            
+            const nGiorni = Math.abs(msgDate.diff(msgAfterDate, 'day'));
+
+            if (nGiorni == 0) return false;
+            else {
+                if (Math.abs(msgDate.diff(now, 'day')) > 1) return dayjs(msgDate).format('DD MMMM YYYY');
+                else if (Math.abs(msgDate.diff(now, 'day')) == 1) return "Ieri";
+                else return "Oggi";
+            }
+
+        }
            
-            console.log(msgDate, msgAfterDate); */
-            /* if ( msgDate.diff(msgAfterDate, "day") >= 1) console.log("giorno dopo")
-            else console.log("giorno stesso"); */
+            
+
         
     },
     

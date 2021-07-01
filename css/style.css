@@ -370,3 +370,16 @@ header .avatar {
     padding: 10px 0;
     cursor: pointer;
 }
+
+.day {
+    color: rgb(90, 88, 88);
+    background-color: #BBE4E5;
+    font-size: 12px;
+    width: fit-content;
+    border-radius: 6px;
+    text-align: center;
+    padding: 6px 10px;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 1px 1px 2px  rgba(0, 0, 0, 0.3);
+}
