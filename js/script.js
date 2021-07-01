@@ -5,6 +5,7 @@ const app = new Vue({
         textSearchMsg: "",
         showingSearchBar: false,
         addMsg: "",
+        answers: ['ok', 'A stasera!', 'Ciao! Bene dai, e tu?', 'Grazie :)', 'Oggi non posso', 'Volentieri!', 'Yep'],
         contacts: [
             {
                 name: 'Michele',
@@ -137,7 +138,7 @@ const app = new Vue({
 
                         const objMsgBack = {
                             date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                            text: "ok",
+                            text: this.answers[Math.floor(Math.random() * this.answers.length)],
                             status: 'received',
                             showInfoBox: false
                         }
